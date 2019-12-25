@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                            http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx.xsd
+                            http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+<!--	<bean id="disconfMgrBean" class="com.baidu.disconf.client.DisconfMgrBean"-->
+<!--		destroy-method="destroy">-->
+<!--		<property name="scanPackage" value="com.haojigeyi.log.disconf" />-->
+<!--	</bean>-->
+<!--	<bean id="disconfMgrBean2" class="com.baidu.disconf.client.DisconfMgrBeanSecond"-->
+<!--		init-method="init" destroy-method="destroy">-->
+<!--	</bean>-->
+<!--	<bean id="configproperties_disconf"-->
+<!--		class="com.baidu.disconf.client.addons.properties.ReloadablePropertiesFactoryBean">-->
+<!--		<property name="locations">-->
+<!--			<list>-->
+<!--				&lt;!&ndash; disconf 配置 &ndash;&gt;-->
+<!--				<value>jdbc.properties</value>-->
+<!--				<value>config.properties</value>-->
+<!--				<value>redis.properties</value>-->
+<!--				<value>mongodb.properties</value>-->
+<!--			</list>-->
+<!--		</property>-->
+<!--	</bean>-->
+
+<!--	<bean id="propertyConfigurer"-->
+<!--		class="com.haojigeyi.ext.utils.ResourceUtils">-->
+<!--		<property name="ignoreUnresolvablePlaceholders" value="true" />-->
+<!--		<property name="propertiesArray">-->
+<!--			<list>-->
+<!--				<ref bean="configproperties_disconf" />-->
+<!--			</list>-->
+<!--		</property>-->
+<!--	</bean>-->
+
+<!--	<bean id = "propertyConfigurer" class ="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >-->
+<!--		<property name = "locations" >-->
+<!--			<list>-->
+<!--				<value>jdbc.properties</value >-->
+<!--			</list>-->
+<!--		</property>-->
+<!--	</bean>-->
+
+<!--	&lt;!&ndash; spring实例工厂配置 &ndash;&gt;-->
+<!--	<bean id="instanceProvider" class="com.haojigeyi.framework.spring.SpringInstanceProvider">-->
+<!--	</bean>-->
+<!--	<bean class="com.haojigeyi.framework.spring.InstanceFactoryBean">-->
+<!--		<property name="instanceProvider" ref="instanceProvider"></property>-->
+<!--	</bean>-->
+
+</beans>

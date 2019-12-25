@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="1800">
+	<Properties>
+		<Property name="log.level">${sys:log.level}</Property>
+		<Property name="log.host">${sys:log.host}</Property>
+		<Property name="log.port">${sys:log.port}</Property>
+		<Property name="pattern">%d %p [%t][%file:%line][userId:%mdc{userId}][sessionId:%mdc{sessionId}][requestId:%mdc{requestId}] %m%n</Property>
+	</Properties>
+	<Appenders>
+
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${pattern}" />
+		</Console>
+		<RollingFile name="RollingFile" fileName="logs/app.log"
+			filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>${pattern}</Pattern>
+			</PatternLayout>
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<Socket name="socket" host="${log.host}" port="${log.port}"
+			connectTimeoutMillis="1000" reconnectionDelayMillis="120000">
+			<PatternLayout pattern="${pattern}" />
+		</Socket>
+		<Async name="Async" includeLocation="true">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingFile" />
+			<AppenderRef ref="socket" />
+		</Async>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="com.czd" level="${log.level}"></Logger>
+		<Logger name="com.alibaba" level="WARN"></Logger>
+		<Root level="info">
+			<AppenderRef ref="Async" />
+		</Root>
+	</Loggers>
+
+</Configuration>

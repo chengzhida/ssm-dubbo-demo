@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="Mysql" targetRuntime="MyBatis3Simple"
+		defaultModelType="flat">
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+		<property name="javaFileEncoding" value="UTF-8" />
+
+		<plugin type="com.haojigeyi.framework.mybatis.plugins.BaseMapperPlugin">
+			<property name="mappers"
+				value="com.haojigeyi.framework.mybatis.mapper.BaseMapper" />
+			<property name="entityInterfaces" value="com.haojigeyi.ext.BaseEntity" />
+		</plugin>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://develop.haojigeyi.cn:3306/log_dev" userId="haojigeyi_dev"
+			password="haojigeyi_dev20171011">
+		</jdbcConnection>
+
+		<javaModelGenerator targetPackage="com.haojigeyi.log.entity"
+			targetProject="src/main/java" />
+		<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" />
+		<javaClientGenerator targetPackage="com.haojigeyi.log.mapper"
+			targetProject="src/main/java" type="XMLMAPPER" />
+		<!-- 增量表或重新生成表配置 -->
+		<table tableName="log_function" domainObjectName="LogFunctionEntity"/>
+	</context>
+</generatorConfiguration>

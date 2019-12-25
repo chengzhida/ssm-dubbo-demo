@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="1800">
+	<Properties>
+		<Property name="log.level">${sys:log.level}</Property>
+		<Property name="pattern">%d %p [%t][%file:%line][userId:%mdc{userId}][sessionId:%mdc{sessionId}][requestId:%mdc{requestId}] %m%n</Property>
+	</Properties>
+	<Appenders>
+
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${pattern}" />
+		</Console>
+		<Async name="Async" includeLocation="true">
+			<AppenderRef ref="Console" />
+		</Async>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="com.haojigeyi" level="${log.level}"></Logger>
+		<Logger name="com.alibaba" level="WARN"></Logger>
+		<Root level="info">
+			<AppenderRef ref="Async" />
+		</Root>
+	</Loggers>
+
+</Configuration>
