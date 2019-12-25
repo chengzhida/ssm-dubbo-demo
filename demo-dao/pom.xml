@@ -43,7 +43,6 @@
             <artifactId>spring-jdbc</artifactId>
             <version>4.2.1.RELEASE</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/tk.mybatis/mapper -->
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper</artifactId>
